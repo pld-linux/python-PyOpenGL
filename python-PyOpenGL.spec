@@ -2,6 +2,7 @@
 %define		module	PyOpenGL
 
 %include	/usr/lib/rpm/macros.python
+
 Summary:	OpenGL bindings for Python
 Summary(pl):	Dowi±zania do OpenGL dla Pythona
 Name:		python-%{module}
@@ -14,6 +15,7 @@ Group(pl):	Programowanie/Jêzyki/Python
 Source0:	http://prdownloads.sourceforge.net/%{module}/%{module}-%{version}.tar.gz
 URL:		http://pyopengl.sourceforge.net/
 %requires_eq	python
+BuildRequires:	python-numpy-devel
 BuildRequires:	python-devel >= 1.5
 BuildRequires:	OpenGL-devel
 BuildRequires:	rpm-pythonprov
@@ -40,10 +42,10 @@ Group(pl):	Programowanie/Jêzyki/Python
 Requires:	%{name} = %{version}
 
 %description devel
-C header files for pygame modules.
+C header files for PyOpenGL modules.
 
 %description devel -l pl
-Pliki nag³ówkowe jêzyka C modu³ów pygame.
+Pliki nag³ówkowe jêzyka C modu³ów PyOpenGL.
 
 %prep
 %setup -q -n %{module}-%{version}
@@ -61,6 +63,9 @@ python setup.py install \
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
 
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+mv -f examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+
 gzip -9nf README* WHATSNEW 
 
 %clean
@@ -68,11 +73,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz docs/* examples
+%doc *.gz docs/*
 %dir %{py_sitedir}/%{module}
 %{py_sitedir}/%{module}/*.ttf
 %attr(755,root,root) %{py_sitedir}/%{module}/*.so
 %{py_sitedir}/%{module}/*.py[co]
+%attr(-,root,root) %{_examplesdir}/%{name}-%{version}
 
 %files devel
 %defattr(644,root,root,755)

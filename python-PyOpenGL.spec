@@ -7,7 +7,7 @@ Version:	2.0.0.44
 Release:	2
 License:	LGPL
 Group:		Development/Languages/Python
-Source0:	http://prdownloads.sourceforge.net/%{module}/%{module}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/pyopengl/%{module}-%{version}.tar.gz
 Patch0:		%{name}-x11.patch
 URL:		http://pyopengl.sourceforge.net/
 BuildRequires:	glut-devel

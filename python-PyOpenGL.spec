@@ -1,8 +1,5 @@
-
 %define		module	PyOpenGL
-
 %include	/usr/lib/rpm/macros.python
-
 Summary:	OpenGL bindings for Python
 Summary(pl):	Dowi±zania do OpenGL dla Pythona
 Name:		python-%{module}
@@ -13,6 +10,7 @@ Group:		Development/Languages/Python
 Group(de):	Entwicklung/Sprachen/Python
 Group(pl):	Programowanie/Jêzyki/Python
 Source0:	http://prdownloads.sourceforge.net/%{module}/%{module}-%{version}.tar.gz
+Patch0:		%{name}-x11.patch
 URL:		http://pyopengl.sourceforge.net/
 %requires_eq	python
 BuildRequires:	python-numpy-devel
@@ -30,28 +28,14 @@ OpenGL bindings for Python including support for GL extensions, GLU,
 WGL, GLUT, GLE, and Tk.
 
 %description -l pl
-Dowi±zania do OpenGL dla Pythona.
-
-%package devel
-Summary:	C header files for pygame modules
-Summary(pl):	Pliki nag³ówkowe jêzyka C modu³ów pygame
-Group:		Development/Languages/Python
-Group(de):	Entwicklung/Sprachen/Python
-Group(pl):	Programowanie/Jêzyki/Python
-%requires_eq	python
-Requires:	%{name} = %{version}
-
-%description devel
-C header files for PyOpenGL modules.
-
-%description devel -l pl
-Pliki nag³ówkowe jêzyka C modu³ów PyOpenGL.
+Dowi±zania do OpenGL dla Pythona (GL, GLU, WGL, GLUT, GLE i Tk).
 
 %prep
 %setup -q -n %{module}-%{version}
+%patch0 -p1
 
 %build
-CFLAGS="%{rpmcflags} -I%{_prefix}/X11R6/include"; export CFLAGS
+CFLAGS="%{rpmcflags}"; export CFLAGS
 python setup.py build
 
 %install
@@ -63,9 +47,6 @@ python setup.py install \
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
 
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-mv -f examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-
 gzip -9nf README* WHATSNEW 
 
 %clean
@@ -74,12 +55,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *.gz docs/*
-%dir %{py_sitedir}/%{module}
-%{py_sitedir}/%{module}/*.ttf
-%attr(755,root,root) %{py_sitedir}/%{module}/*.so
-%{py_sitedir}/%{module}/*.py[co]
-%attr(-,root,root) %{_examplesdir}/%{name}-%{version}
-
-%files devel
-%defattr(644,root,root,755)
-%{py_incdir}/%{module}
+%attr(-, root,root) %{py_sitedir}/OpenGL

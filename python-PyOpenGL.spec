@@ -15,7 +15,7 @@ BuildRequires:	python-numpy-devel
 BuildRequires:	python-devel >= 2.2
 BuildRequires:	OpenGL-devel
 BuildRequires:	rpm-pythonprov
-%requires_eq	python
+%pyrequires_eq	python
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	%{module}
 

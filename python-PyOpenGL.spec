@@ -31,7 +31,7 @@ Dowi±zania do OpenGL dla Pythona (GL, GLU, WGL, GLUT, GLE i Tk).
 %setup -q -n %{module}-%{version}
 
 %build
-CFLAGS="%{rpmcflags}"; export CFLAGS
+CFLAGS="%{rpmcflags} -L /usr/X11R6/%{_lib}"; export CFLAGS
 python setup.py build
 
 %install

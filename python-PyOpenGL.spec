@@ -8,6 +8,7 @@ Release:	2
 License:	LGPL
 Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/pyopengl/%{module}-%{version}.tar.gz
+# Source0-md5:	87066d1ebce1ecda2f562182332c658b
 Patch0:		%{name}-x11.patch
 URL:		http://pyopengl.sourceforge.net/
 BuildRequires:	glut-devel

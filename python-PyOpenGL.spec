@@ -18,8 +18,8 @@ BuildRequires:	rpm-pythonprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	%{module}
 
-%define         _noautoreqdep	libGL.so.1 libGLU.so.1 libGLcore.so.1
-%define         _noreqdep	libGL.so.1 libGLU.so.1 libGLcore.so.1
+%define		_noautoreqdep	libGL.so.1 libGLU.so.1 libGLcore.so.1
+%define		_noreqdep	libGL.so.1 libGLU.so.1 libGLcore.so.1
 
 %description
 OpenGL bindings for Python including support for GL extensions, GLU,

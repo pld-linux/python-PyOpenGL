@@ -3,13 +3,12 @@
 Summary:	OpenGL bindings for Python
 Summary(pl):	Dowi±zania do OpenGL dla Pythona
 Name:		python-%{module}
-Version:	2.0.0.44
-Release:	2
+Version:	2.0.1.07
+Release:	1
 License:	LGPL
 Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/pyopengl/%{module}-%{version}.tar.gz
-# Source0-md5:	87066d1ebce1ecda2f562182332c658b
-Patch0:		%{name}-x11.patch
+# Source0-md5:	02e4331778fad4da7549ff1585a7a4a4
 URL:		http://pyopengl.sourceforge.net/
 BuildRequires:	glut-devel
 BuildRequires:	python-numpy-devel
@@ -32,7 +31,6 @@ Dowi±zania do OpenGL dla Pythona (GL, GLU, WGL, GLUT, GLE i Tk).
 
 %prep
 %setup -q -n %{module}-%{version}
-%patch0 -p1
 
 %build
 CFLAGS="%{rpmcflags}"; export CFLAGS
@@ -52,5 +50,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README* OpenGL/doc/html/*
+%doc README* OpenGL/doc/xhtml/*
 %attr(-, root,root) %{py_sitedir}/OpenGL

@@ -46,12 +46,10 @@ python setup.py install \
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
 
-gzip -9nf README*
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz OpenGL/doc/html/*
+%doc README* OpenGL/doc/html/*
 %attr(-, root,root) %{py_sitedir}/OpenGL

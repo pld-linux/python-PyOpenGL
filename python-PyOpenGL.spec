@@ -7,10 +7,6 @@ Version:	2.0.0.44
 Release:	2
 License:	LGPL
 Group:		Development/Languages/Python
-Group(de):	Entwicklung/Sprachen/Python
-Group(es):	Desarrollo/Lenguages/Python
-Group(fr):	Development/Langues/Python
-Group(pl):	Programowanie/Jêzyki/Python
 Source0:	http://prdownloads.sourceforge.net/%{module}/%{module}-%{version}.tar.gz
 Patch0:		%{name}-x11.patch
 URL:		http://pyopengl.sourceforge.net/

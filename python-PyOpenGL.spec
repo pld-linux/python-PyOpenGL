@@ -13,6 +13,7 @@ Source0:	http://prdownloads.sourceforge.net/%{module}/%{module}-%{version}.tar.g
 Patch0:		%{name}-x11.patch
 URL:		http://pyopengl.sourceforge.net/
 %requires_eq	python
+BuildRequires:	glut-devel
 BuildRequires:	python-numpy-devel
 BuildRequires:	python-devel >= 1.5
 BuildRequires:	OpenGL-devel
@@ -47,12 +48,12 @@ python setup.py install \
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
 
-gzip -9nf README* WHATSNEW 
+gzip -9nf README*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz docs/*
+%doc *.gz OpenGL/doc/html/*
 %attr(-, root,root) %{py_sitedir}/OpenGL

@@ -1,5 +1,4 @@
 %define		module	PyOpenGL
-%include	/usr/lib/rpm/macros.python
 Summary:	OpenGL bindings for Python
 Summary(pl):	Dowi±zania do OpenGL dla Pythona
 Name:		python-%{module}

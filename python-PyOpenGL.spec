@@ -1,5 +1,5 @@
 
-%define module PyOpenGL
+%define		module	PyOpenGL
 
 %include	/usr/lib/rpm/macros.python
 Summary:	OpenGL bindings for Python
@@ -13,11 +13,11 @@ Group(de):	Entwicklung/Sprachen/Python
 Group(pl):	Programowanie/Jêzyki/Python
 Source0:	http://prdownloads.sourceforge.net/%{module}/%{module}-%{version}.tar.gz
 URL:		http://pyopengl.sourceforge.net/
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %requires_eq	python
 BuildRequires:	python-devel >= 1.5
 BuildRequires:	OpenGL-devel
 BuildRequires:	rpm-pythonprov
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	%{module}
 
 %define         _noautoreqdep	libGL.so.1 libGLU.so.1 libGLcore.so.1

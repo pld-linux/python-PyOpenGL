@@ -2,12 +2,12 @@
 Summary:	OpenGL bindings for Python
 Summary(pl):	Dowi±zania do OpenGL dla Pythona
 Name:		python-%{module}
-Version:	2.0.1.09
+Version:	2.0.2.01
 Release:	1
 License:	LGPL
 Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/pyopengl/%{module}-%{version}.tar.gz
-# Source0-md5:	505b5f28ea676194e2e10333c56d5936
+# Source0-md5:	3deac41df71fc98c814330d1eb54ce71
 URL:		http://pyopengl.sourceforge.net/
 BuildRequires:	glut-devel
 BuildRequires:	python-numpy-devel

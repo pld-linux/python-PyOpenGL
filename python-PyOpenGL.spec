@@ -9,16 +9,16 @@ Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/pyopengl/%{module}-%{version}.tar.gz
 # Source0-md5:	3deac41df71fc98c814330d1eb54ce71
 URL:		http://pyopengl.sourceforge.net/
+BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	glut-devel
-BuildRequires:	python-numpy-devel
+BuildRequires:	python-Numeric-devel >= 22.0
 BuildRequires:	python-devel >= 2.2
-BuildRequires:	OpenGL-devel
 %pyrequires_eq	python
+Requires:	python-Numeric >= 22.0
+Obsoletes:	PyOpenGL
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Obsoletes:	%{module}
 
 %define		_noautoreqdep	libGL.so.1 libGLU.so.1 libGLcore.so.1
-%define		_noreqdep	libGL.so.1 libGLU.so.1 libGLcore.so.1
 
 %description
 OpenGL bindings for Python including support for GL extensions, GLU,
@@ -49,4 +49,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README* OpenGL/doc/xhtml/*
-%attr(-, root,root) %{py_sitedir}/OpenGL
+%attr(-,root,root) %{py_sitedir}/OpenGL

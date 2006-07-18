@@ -1,0 +1,28 @@
+--- PyOpenGL-2.0.2.01/config/linux.cfg.orig	2001-11-23 16:56:32.000000000 +0100
++++ PyOpenGL-2.0.2.01/config/linux.cfg	2006-07-18 12:45:59.734440000 +0200
+@@ -11,12 +11,10 @@
+ [General]
+ build_togl=1
+ gl_platform=GLX
+-include_dirs=/usr/include:/usr/local/include:/usr/X11/include:/usr/X11R6/include
+-library_dirs=/usr/lib:/usr/local/lib:/usr/X11/lib:/usr/X11R6/lib
+ 
+ ; a os.pathsep separated list of the libs needed when linking GL
+ [GL]
+-libs=GL:X11:Xext
++libs=GL
+ 
+ ; a os.pathsep separated list of the libs needed when linking GLU
+ ; the GL libraries are included automatically
+@@ -26,9 +24,9 @@
+ ; a os.pathsep separated list of the libs needed when linking GLUT
+ ; the GL and GLU libraries are included automatically
+ [GLUT]
+-libs=glut:Xi:Xmu
++libs=glut
+ 
+ ; a comma separated list of the libs needed when linking Togl
+ ; the GL and GLU libraries are included automatically
+ [Togl]
+-libs=Xmu:Xt:m
++libs=Xmu:m

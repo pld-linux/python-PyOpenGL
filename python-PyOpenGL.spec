@@ -1,6 +1,6 @@
 %define		module	PyOpenGL
 Summary:	OpenGL bindings for Python
-Summary(pl):	Dowi±zania do OpenGL dla Pythona
+Summary(pl.UTF-8):   DowiÄ…zania do OpenGL dla Pythona
 Name:		python-%{module}
 Version:	2.0.2.01
 Release:	1
@@ -24,8 +24,8 @@ Obsoletes:	%{module}
 OpenGL bindings for Python including support for GL extensions, GLU,
 WGL, GLUT, GLE, and Tk.
 
-%description -l pl
-Dowi±zania do OpenGL dla Pythona (GL, GLU, WGL, GLUT, GLE i Tk).
+%description -l pl.UTF-8
+DowiÄ…zania do OpenGL dla Pythona (GL, GLU, WGL, GLUT, GLE i Tk).
 
 %prep
 %setup -q -n %{module}-%{version}

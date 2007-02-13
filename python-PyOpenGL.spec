@@ -1,6 +1,6 @@
 %define		module	PyOpenGL
 Summary:	OpenGL bindings for Python
-Summary(pl.UTF-8):   Dowiązania do OpenGL dla Pythona
+Summary(pl.UTF-8):	Dowiązania do OpenGL dla Pythona
 Name:		python-%{module}
 Version:	2.0.2.01
 Release:	2
@@ -31,7 +31,7 @@ GLUT, GLE i Tk.
 
 %package examples
 Summary:	Demos for PyOpenGL
-Summary(pl.UTF-8):   Programy demonstracyjne dla pakietu PyOpenGL
+Summary(pl.UTF-8):	Programy demonstracyjne dla pakietu PyOpenGL
 Group:		Development/Languages/Python
 Requires:	%{name} = %{version}-%{release}
 

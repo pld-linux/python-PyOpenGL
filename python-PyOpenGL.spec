@@ -3,7 +3,7 @@ Summary:	OpenGL bindings for Python
 Summary(pl.UTF-8):	Dowiązania do OpenGL dla Pythona
 Name:		python-%{module}
 Version:	2.0.2.01
-Release:	3
+Release:	4
 License:	LGPL
 Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/pyopengl/%{module}-%{version}.tar.gz

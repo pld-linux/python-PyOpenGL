@@ -1,6 +1,7 @@
 #
 # TODO:	- download and include PyOpenGL-Demo (it's now in separate package)
 #	- check deps
+#	- applications which use pyopengl can't locate it - try to fix it
 #
 %define		module	PyOpenGL
 %define		_beta	b8

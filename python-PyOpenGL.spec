@@ -21,6 +21,7 @@ BuildRequires:	python-Numeric-devel >= 22.0
 BuildRequires:	python-devel >= 1:2.5
 %pyrequires_eq	python-libs
 Requires:	python-Numeric >= 22.0
+BuildRequires:	rpmbuild(macros) >= 1.219
 Obsoletes:	PyOpenGL
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

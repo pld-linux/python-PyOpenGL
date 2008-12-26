@@ -2,12 +2,13 @@
 Summary:	OpenGL bindings for Python
 Summary(pl.UTF-8):	Dowiązania do OpenGL dla Pythona
 Name:		python-%{module}
-Version:	2.0.2.01
-Release:	4
+Version:	3.0.0
+%define	beta	b6
+Release:	0.%{beta}.1
 License:	LGPL
 Group:		Development/Languages/Python
-Source0:	http://dl.sourceforge.net/pyopengl/%{module}-%{version}.tar.gz
-# Source0-md5:	3deac41df71fc98c814330d1eb54ce71
+Source0:	http://dl.sourceforge.net/pyopengl/%{module}-%{version}%{beta}.tar.gz
+# Source0-md5:	6a70dd315767064ec78b84a92d2420a8
 Patch0:		%{name}-link.patch
 URL:		http://pyopengl.sourceforge.net/
 BuildRequires:	OpenGL-GLU-devel
@@ -17,6 +18,7 @@ BuildRequires:	python-devel >= 2.2
 %pyrequires_eq	python-libs
 Requires:	python-Numeric >= 22.0
 Obsoletes:	PyOpenGL
+Obsoletes:	python-PyOpenGL-examples
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_noautoreqdep	libGL.so.1 libGLU.so.1
@@ -29,21 +31,8 @@ WGL, GLUT, GLE, and Tk.
 Dowiązania do OpenGL dla Pythona wraz z rozszerzeniami GL, GLU, WGL,
 GLUT, GLE i Tk.
 
-%package examples
-Summary:	Demos for PyOpenGL
-Summary(pl.UTF-8):	Programy demonstracyjne dla pakietu PyOpenGL
-Group:		Development/Languages/Python
-Requires:	%{name} = %{version}-%{release}
-
-%description examples
-Demos for PyOpenGL.
-
-%description examples -l pl.UTF-8
-Programy demonstracyjne dla pakietu PyOpenGL.
-
 %prep
-%setup -q -n %{module}-%{version}
-%patch0 -p1
+%setup -q -n %{module}-%{version}%{beta}
 
 %build
 CFLAGS="%{rpmcflags}"; export CFLAGS
@@ -53,23 +42,20 @@ python setup.py build
 rm -rf $RPM_BUILD_ROOT
 
 python setup.py install \
-	--root=$RPM_BUILD_ROOT
+	--root=$RPM_BUILD_ROOT \
+	--single-version-externally-managed
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-cp -a OpenGL/Demo $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
 %py_postclean
-
-rm -rf $RPM_BUILD_ROOT%{py_sitedir}/OpenGL/{Demo,doc}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README* OpenGL/doc/xhtml/*
 %dir %{py_sitedir}/OpenGL
 %{py_sitedir}/OpenGL/__init__.py[co]
 %{py_sitedir}/OpenGL/quaternion.py[co]
@@ -105,7 +91,3 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/OpenGL/Tk
 # WGL
 %{py_sitedir}/OpenGL/WGL
-
-%files examples
-%defattr(644,root,root,755)
-%{_examplesdir}/%{name}-%{version}

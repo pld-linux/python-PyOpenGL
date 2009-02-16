@@ -1,10 +1,10 @@
 #
-# TODO:	- download and include PyOpenGL-Demo (it's now in separate package)
+# TODO:	- package demos into examplesdir?
 #	- check deps
 #	- applications which use pyopengl can't locate it - try to fix it
 #
 %define		module	PyOpenGL
-%define		_beta	b8
+%define		_beta	c1
 Summary:	OpenGL bindings for Python
 Summary(pl.UTF-8):	Dowiązania do OpenGL dla Pythona
 Name:		python-%{module}
@@ -13,7 +13,9 @@ Release:	0.%{_beta}.1
 License:	LGPL
 Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/pyopengl/%{module}-%{version}%{_beta}.tar.gz
-# Source0-md5:	1d9afbf0a403d916997937ef0dde2520
+# Source0-md5:	51a33cea33f3e8eb2eaf12f574dcb1af
+Source1:	http://dl.sourceforge.net/pyopengl/%{module}-Demo-%{version}%{_beta}.tar.gz
+# Source1-md5:	672c53e5dcfad16f25bf04ebe6000e0c
 URL:		http://pyopengl.sourceforge.net/
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	OpenGL-glut-devel
@@ -48,14 +50,22 @@ Demos for PyOpenGL.
 Programy demonstracyjne dla pakietu PyOpenGL.
 
 %prep
-%setup -q -n %{module}-%{version}%{_beta}
+%setup -q -n %{module}-%{version}%{_beta} -a 1
 
 %build
+%{__python} setup.py build
+
+cd %{module}-Demo-%{version}%{_beta}
 %{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
+%{__python} setup.py install \
+	--optimize=2 \
+	--root=$RPM_BUILD_ROOT
+
+cd %{module}-Demo-%{version}%{_beta}
 %{__python} setup.py install \
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT
@@ -69,17 +79,15 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -rf $RPM_BUILD_ROOT%{py_sitedir}/OpenGL/{Demo,doc}
 
-%py_postclean
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-#%%doc README* OpenGL/doc/xhtml/*
+%doc PKG-INFO
 %{py_sitescriptdir}/OpenGL
 %{py_sitescriptdir}/*.egg-info
 
 %files examples
 %defattr(644,root,root,755)
-#%%{_examplesdir}/%{name}-%{version}
+%{py_sitescriptdir}/PyOpenGL-Demo

@@ -4,7 +4,7 @@
 #
 %define		module		PyOpenGL
 %define		_ver		3.0.1
-%define		_subver		a2
+%define		_subver		a3
 %define		_demo_subver	a1
 Summary:	OpenGL bindings for Python
 Summary(pl.UTF-8):	Dowiązania do OpenGL dla Pythona
@@ -14,7 +14,7 @@ Release:	0.1
 License:	LGPL
 Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/pyopengl/%{module}-%{version}.tar.gz
-# Source0-md5:	347f2829d357157c6755eeeee14e59a4
+# Source0-md5:	c815ad5d3e74694d8fdab7bf91bfaf9b
 Source1:	http://dl.sourceforge.net/pyopengl/%{module}-Demo-%{_ver}%{_demo_subver}.tar.gz
 # Source1-md5:	75b66abdf2d0e5003798c0fa12abee6e
 URL:		http://pyopengl.sourceforge.net/

@@ -68,9 +68,6 @@ cd %{module}-Demo-%{_ver}%{_demo_subver}
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT
 
-#install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-#cp -a OpenGL/Demo $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
 %py_postclean

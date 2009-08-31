@@ -1,7 +1,3 @@
-#
-# TODO:	- check deps
-#	- applications which use pyopengl can't locate it - try to fix it
-#
 %define		module		PyOpenGL
 %define		_ver		3.0.1
 %define		_subver		a3
@@ -10,7 +6,7 @@ Summary:	OpenGL bindings for Python
 Summary(pl.UTF-8):	Dowiązania do OpenGL dla Pythona
 Name:		python-%{module}
 Version:	%{_ver}%{_subver}
-Release:	0.1
+Release:	1
 License:	LGPL
 Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/pyopengl/%{module}-%{version}.tar.gz

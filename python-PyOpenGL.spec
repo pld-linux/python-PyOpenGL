@@ -19,6 +19,7 @@ BuildRequires:	OpenGL-glut-devel
 BuildRequires:	python-Numeric-devel >= 22.0
 BuildRequires:	python-devel
 %pyrequires_eq	python-libs
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 Requires:	python-Numeric >= 22.0
 Obsoletes:	PyOpenGL

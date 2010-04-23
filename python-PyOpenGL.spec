@@ -3,7 +3,7 @@ Summary:	OpenGL bindings for Python
 Summary(pl.UTF-8):	Dowiązania do OpenGL dla Pythona
 Name:		python-%{module}
 Version:	3.0.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPL
 Group:		Development/Languages/Python
@@ -37,7 +37,7 @@ GLUT, GLE i Tk.
 Summary:	Demos for PyOpenGL
 Summary(pl.UTF-8):	Programy demonstracyjne dla pakietu PyOpenGL
 Group:		Development/Languages/Python
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 
 %description examples
 Demos for PyOpenGL.

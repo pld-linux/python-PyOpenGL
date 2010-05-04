@@ -2,14 +2,14 @@
 Summary:	OpenGL bindings for Python
 Summary(pl.UTF-8):	Dowiązania do OpenGL dla Pythona
 Name:		python-%{module}
-Version:	3.0.1
-Release:	2
+Version:	3.0.1b1
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Development/Languages/Python
 Source0:	http://downloads.sourceforge.net/pyopengl/%{module}-%{version}.tar.gz
-# Source0-md5:	221d4a6a0928fcfeef26751370ec5f52
-Source1:	http://downloads.sourceforge.net/pyopengl/%{module}-Demo-%{version}a1.tar.gz
+# Source0-md5:	0fa6fcd734c0cd22180256fee8fc77d6
+Source1:	http://downloads.sourceforge.net/pyopengl/%{module}-Demo-3.0.1a1.tar.gz
 # Source1-md5:	75b66abdf2d0e5003798c0fa12abee6e
 URL:		http://pyopengl.sourceforge.net/
 BuildRequires:	OpenGL-GLU-devel
@@ -51,7 +51,7 @@ Programy demonstracyjne dla pakietu PyOpenGL.
 %build
 %{__python} setup.py build
 
-cd %{module}-Demo-%{version}a1
+cd %{module}-Demo-3.0.1a1
 %{__python} setup.py build
 
 %install
@@ -61,7 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT
 
-cd %{module}-Demo-%{version}a1
+cd %{module}-Demo-3.0.1a1
 %{__python} setup.py install \
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT

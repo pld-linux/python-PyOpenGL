@@ -9,7 +9,7 @@ Summary:	OpenGL bindings for Python
 Summary(pl.UTF-8):	Dowiązania do OpenGL dla Pythona
 Name:		python-%{module}
 Version:	3.1.0
-Release:	3
+Release:	4
 Epoch:		1
 License:	BSD
 Group:		Development/Languages/Python
